@@ -30,11 +30,10 @@ public class Utils {
                deleteFirstNumandComma(individualLines, index, i);
                deletePercentSign(individualLines,index,i);
                deleteQuotesAndComma(individualLines, index, i, quoteNum, quote);
-               results = addElectionResultsObject(individualLines);
             }
         }
 
-
+        return addElectionResultsObject(individualLines);
 
 
     }
