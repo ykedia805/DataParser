@@ -25,7 +25,7 @@ public class Utils {
         int quoteNum = 0;
         ArrayList<ElectionResult> results = new ArrayList<>();
         String[] individualLines = data.split("\n");
-        for (int i = 1; i < individualLines.length; i++) { // skips first  line which is the labels of each column
+        for (int i = 1; i < individualLines.length; i++) {
             for (int index = 0; index < individualLines[i].length(); index++) {
                deleteFirstNumandComma(individualLines, index, i);
                deletePercentSign(individualLines,index,i);
@@ -38,7 +38,7 @@ public class Utils {
 
     }
     private static void deleteFirstNumandComma(String[] individualLines, int index, int i){
-        if(individualLines[i].substring(index,index+1).equals(",")){ // gets rid of the first number and the comma
+        if(individualLines[i].substring(index,index+1).equals(",")){
             if(index < 6){
                 individualLines[i].replace(individualLines[i].substring(0,index+1),"");
             }
@@ -61,7 +61,7 @@ public class Utils {
         return -1;
     }
     private static void deleteQuotesAndComma(String[] individualLines, int index, int i, int quoteNum, String quote){
-        if(quoteNum == 0) { // gets rid of comma inside quotes and then both of the quotes
+        if(quoteNum == 0) {
             if (individualLines[i].substring(index, index + 1).equals(quote.substring(1, 2))) {
                 int secondQuote = getSecondQuoteIndex(individualLines[i].substring(index));
                 for (int j = index; j < secondQuote; j++) {
@@ -78,7 +78,7 @@ public class Utils {
 
     private static ArrayList<ElectionResult> addElectionResultsObject(String[] individualLines){
         ArrayList<ElectionResult> results = new ArrayList<>();
-        for (int lineNum = 0; lineNum < individualLines.length; lineNum++) { //splits and creates new ElectionResult obj, then adds it to arraylist
+        for (int lineNum = 0; lineNum < individualLines.length; lineNum++) {
             String[] dataLines = individualLines[lineNum].split(",");
             ElectionResult result = new ElectionResult(Integer.parseInt(dataLines[0]),Integer.parseInt(dataLines[1]),Integer.parseInt(dataLines[2]),Integer.parseInt(dataLines[3]),
                 Integer.parseInt(dataLines[4]),Integer.parseInt(dataLines[5]),Integer.parseInt(dataLines[6])
