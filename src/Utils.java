@@ -89,5 +89,12 @@ public class Utils {
 
          return results;
     }
+    private static String removeSubstring(String str, int start, int end){
+        String a = str.substring(0, start);
+        String b = str.substring(end + 1);
+        return a + b;
+    }
+
+
 
 }
