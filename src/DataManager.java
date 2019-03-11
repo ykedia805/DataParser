@@ -15,4 +15,11 @@ public class DataManager {
     public void removeStates(State s){
         states.remove(s);
     }
+
+    @Override
+    public String toString() {
+        return "DataManager{" +
+                "states=" + states +
+                '}';
+    }
 }
